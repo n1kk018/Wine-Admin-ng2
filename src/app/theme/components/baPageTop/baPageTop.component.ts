@@ -27,4 +27,9 @@ export class BaPageTop {
   public scrolledChanged(isScrolled) {
     this.isScrolled = isScrolled;
   }
+
+  public startSearch():void {
+    console.log('start searching...')
+  }
+
 }
