@@ -1,5 +1,51 @@
-<div class="col-md-6">
-  <ba-card title="tree_view.title">
-    <tree id="tree-view" [tree]="tree"></tree>
-  </ba-card>
+  <div class="row">
+    <div class="col-sm-6">
+      <ba-card title="Product Overview">
+        <div class="input-group">
+          <input type="text" class="form-control with-danger-addon" placeholder="Search for...">
+          <span class="input-group-btn">
+              <button class="btn btn-danger" type="button" (click)="this.startSearch()">Go!</button>
+          </span>
+        </div>
+        <!-- <tree id="tree-view" [tree]="tree"></tree> -->
+        <div>
+          <ba-card title="Wine Properties" baCardClass="with-scroll">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Type">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Variety">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Vintage [Year]">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Price [€]">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Description"></textarea>
+              </div>
+              <!-- <button type="submit" class="btn btn-success">Change</button> -->
+            </form>
+          </ba-card>
+        </div>
+          </ba-card>
+    </div>
+
+    <!-- <div class="col-sm-1">
+
+    </div> -->
+
+        <ba-card title="Products Overview">
+            <div class="col-sm-3">
+              <iframe src="http://localhost:5601/app/kibana#/visualize/edit/price_quantity?embed=true&_g=(filters:!(),refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-15m,mode:quick,to:now))&_a=(filters:!(),linked:!f,query:(query_string:(analyze_wildcard:!t,query:'*')),uiState:(spy:(mode:(fill:!f,name:!n)),vis:(colors:('0%20to%2050':%23CFFAFF,'1%20to%205':%239AC48A,'150%20to%2010,000':%23511749,'5%20to%2010':%23508642,'50%20to%20100':%236ED0E0),legendOpen:!t)),vis:(aggs:!((id:'1',params:(),schema:metric,type:count),(id:'2',params:(field:user.order.product.product_price,ranges:!((from:0,to:50),(from:50,to:100),(from:100,to:150),(from:150,to:10000))),schema:segment,type:range),(id:'3',params:(field:user.order.product.quantity,ranges:!((from:1,to:5),(from:5,to:10))),schema:segment,type:range)),listeners:(),params:(addLegend:!t,addTooltip:!t,isDonut:!f,shareYAxis:!t),title:price_quantity_distribution,type:pie))"
+                height="350" width="450">
+              </iframe>
+            </div>
+        </ba-card>
+
 </div>

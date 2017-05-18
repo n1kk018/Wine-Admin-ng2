@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: Components,
     children: [
-      { path: 'treeview', component: TreeView }
+      { path: 'product', component: TreeView }
     ]
   }
 ];

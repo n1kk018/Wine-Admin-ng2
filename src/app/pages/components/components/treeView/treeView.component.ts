@@ -33,4 +33,7 @@ export class TreeView {
   constructor() {
   }
 
+  public startSearch():void {
+    console.log('Calling REST elasticsearch ...')
+  }
 }

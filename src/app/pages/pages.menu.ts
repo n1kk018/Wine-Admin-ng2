@@ -49,7 +49,7 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'treeview',
+            path: 'product',
             data: {
               menu: {
                 title: 'general.menu.tree_view',

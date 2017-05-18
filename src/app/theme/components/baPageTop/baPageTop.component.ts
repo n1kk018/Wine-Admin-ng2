@@ -29,7 +29,7 @@ export class BaPageTop {
   }
 
   public startSearch():void {
-    console.log('start searching...')
+    console.log('Calling REST elasticsearch ...')
   }
 
 }
