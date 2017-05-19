@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { EntityDashboard } from '../entities/entityDashboard'
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -17,9 +18,10 @@ export class InitDashboardService {
       return Promise.reject(error.message || error);
     }
 
-    // initDashboard():Promise<any> {
-    //     return null
-    // }
-
+    initDashboard(): Promise<EntityDashboard> {
+      return this.http.get(this.dashInitUrl).toPromise()
+        .then(response => response.json() as EntityDashboard)
+        .catch(this.handleError)
+    }
 
 }

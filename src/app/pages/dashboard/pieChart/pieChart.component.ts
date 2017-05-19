@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit } from '@angular/core';
 
 import {PieChartService} from './pieChart.service';
 
 import 'easy-pie-chart/dist/jquery.easypiechart.js';
+import { EntityDashboard } from '../../../entities/entityDashboard';
 
 @Component({
   selector: 'pie-chart',
@@ -10,14 +11,22 @@ import 'easy-pie-chart/dist/jquery.easypiechart.js';
   styleUrls: ['./pieChart.scss']
 })
 // TODO: move easypiechart to component
-export class PieChart {
+export class PieChart implements OnInit{
+
+  @Input() dashInitVars: EntityDashboard
 
   public charts: Array<Object>;
   private _init = false;
 
   constructor(private _pieChartService: PieChartService) {
-    this.charts = this._pieChartService.getData();
+
   }
+
+ ngOnInit(){
+   if (this.dashInitVars) {
+     this.charts = this._pieChartService.getData(this.dashInitVars);
+     }
+ }
 
   ngAfterViewInit() {
     if (!this._init) {
@@ -51,7 +60,7 @@ export class PieChart {
     let getRandomArbitrary = (min, max) => { return Math.random() * (max - min) + min; };
 
     jQuery('.pie-charts .chart').each(function(index, chart) {
-      jQuery(chart).data('easyPieChart').update(getRandomArbitrary(55, 90));
+      jQuery(chart).data('easyPieChart').update(getRandomArbitrary(75, 85));
     });
   }
 }

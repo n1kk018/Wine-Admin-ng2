@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BaThemeConfigProvider, colorHelper} from '../../../theme';
+import { EntityDashboard } from '../../../entities/entityDashboard';
 
 @Injectable()
 export class PieChartService {
@@ -7,23 +8,23 @@ export class PieChartService {
   constructor(private _baConfig:BaThemeConfigProvider) {
   }
 
-  getData() {
+  getData(initVars: EntityDashboard) {
     let pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
     return [
       {
         color: pieColor,
         description: 'dashboard.new_visits',
-        stats: '57,820',
+        stats: ''+initVars.loginLastMonth,
         icon: 'person',
       }, {
         color: pieColor,
         description: 'dashboard.purchases',
-        stats: '$ 89,745',
+        stats: '$ 589,745',
         icon: 'money',
       }, {
         color: pieColor,
         description: 'dashboard.active_users',
-        stats: '178,391',
+        stats: ''+initVars.activeUsers,
         icon: 'face',
       }, {
         color: pieColor,
