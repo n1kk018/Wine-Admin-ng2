@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BaThemeConfigProvider, colorHelper} from '../../../theme';
+import { EntityDashboard } from '../../../entities/entityDashboard';
 
 @Injectable()
 export class TrafficChartService {
@@ -8,43 +9,43 @@ export class TrafficChartService {
   }
 
 
-  getData() {
+  getData(initVars: EntityDashboard) {
     let dashboardColors = this._baConfig.get().colors.dashboard;
     return [
       {
-        value: 2000,
+        value: initVars.wineDistribution[0].split(':')[1],
         color: dashboardColors.white,
         highlight: colorHelper.shade(dashboardColors.white, 15),
-        label: 'Other',
-        percentage: 87,
+        label: 'White Wine',
+        percentage: 21,
         order: 1,
       }, {
-        value: 1500,
+        value: initVars.wineDistribution[1].split(':')[1],
         color: dashboardColors.gossip,
         highlight: colorHelper.shade(dashboardColors.gossip, 15),
-        label: 'Search engines',
+        label: 'Red Wine',
         percentage: 22,
         order: 4,
       }, {
-        value: 1000,
+        value: initVars.wineDistribution[2].split(':')[1],
         color: dashboardColors.silverTree,
         highlight: colorHelper.shade(dashboardColors.silverTree, 15),
-        label: 'Referral Traffic',
-        percentage: 70,
+        label: 'Champagne',
+        percentage: 87,
         order: 3,
       }, {
-        value: 1200,
+        value: initVars.wineDistribution[3].split(':')[1],
         color: dashboardColors.surfieGreen,
         highlight: colorHelper.shade(dashboardColors.surfieGreen, 15),
-        label: 'Direct Traffic',
+        label: 'Rosé',
         percentage: 38,
         order: 2,
       }, {
-        value: 400,
+        value: 4000,
         color: dashboardColors.blueStone,
         highlight: colorHelper.shade(dashboardColors.blueStone, 15),
-        label: 'Ad Campaigns',
-        percentage: 17,
+        label: 'Other',
+        percentage: 15,
         order: 0,
       },
     ];

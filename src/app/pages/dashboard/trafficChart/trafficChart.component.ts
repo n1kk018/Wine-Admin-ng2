@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import {TrafficChartService} from './trafficChart.service';
+import { EntityDashboard } from '../../../entities/entityDashboard';
+
 import * as Chart from 'chart.js';
 
 @Component({
@@ -11,11 +13,20 @@ import * as Chart from 'chart.js';
 
 // TODO: move chart.js to it's own component
 export class TrafficChart {
-
+  @Input() dashInitVars: EntityDashboard
   public doughnutData: Array<Object>;
 
+  public totalWine: number;
+
   constructor(private trafficChartService:TrafficChartService) {
-    this.doughnutData = trafficChartService.getData();
+
+  }
+  ngOnInit(){
+    if (this.dashInitVars) {
+      this.doughnutData = this.trafficChartService.getData(this.dashInitVars);
+      this.totalWine    = +this.dashInitVars.wineDistribution[0].split(':')[1]+ +this.dashInitVars.wineDistribution[1].split(':')[1]+
+        +this.dashInitVars.wineDistribution[2].split(':')[1]+ +this.dashInitVars.wineDistribution[3].split(':')[1]+ 4000
+    }
   }
 
   ngAfterViewInit() {

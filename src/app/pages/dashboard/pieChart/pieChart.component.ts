@@ -17,9 +17,12 @@ export class PieChart implements OnInit{
 
   public charts: Array<Object>;
   private _init = false;
-
+  public indexPieCharts: number;
   constructor(private _pieChartService: PieChartService) {
-
+    this.indexPieCharts = 0;
+    if (this.indexPieCharts = 0) {
+      localStorage.setItem('indexPieCharts',''+this.indexPieCharts);
+    }
   }
 
  ngOnInit(){
@@ -57,10 +60,31 @@ export class PieChart implements OnInit{
   }
 
   private _updatePieCharts() {
-    let getRandomArbitrary = (min, max) => { return Math.random() * (max - min) + min; };
+
+    let getRandomArbitrary = (min, max) => {
+      return Math.random() * (max - min) + min;
+    };
+    let getOnWinePercent = () => {
+      let temp = 0;
+      temp = +localStorage.getItem('indexPieCharts') + 1;
+      localStorage['indexPieCharts'] = temp;
+      if (temp == 1) {
+        return 80;
+      } else if (temp == 2){
+        return 88;
+      } else if (temp == 3){
+        return 9
+      } else {
+        if (+localStorage.getItem('indexPieCharts') > 3) {
+          localStorage['indexPieCharts'] = ''+0;
+        }
+        return 85
+      }
+
+    };
 
     jQuery('.pie-charts .chart').each(function(index, chart) {
-      jQuery(chart).data('easyPieChart').update(getRandomArbitrary(75, 85));
+      jQuery(chart).data('easyPieChart').update(getOnWinePercent());
     });
   }
 }

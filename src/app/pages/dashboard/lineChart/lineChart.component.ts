@@ -17,7 +17,7 @@ export class LineChart {
 
   initChart(chart:any) {
     let zoomChart = () => {
-      chart.zoomToDates(new Date(2013, 3), new Date(2014, 0));
+      chart.zoomToDates(new Date(2015, 12), new Date(2017, 2));
     };
 
     chart.addListener('rendered', zoomChart);

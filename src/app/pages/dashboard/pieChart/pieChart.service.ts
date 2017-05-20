@@ -29,7 +29,7 @@ export class PieChartService {
       }, {
         color: pieColor,
         description: 'dashboard.returned',
-        stats: '32,592',
+        stats: '15,592',
         icon: 'refresh',
       }
     ];

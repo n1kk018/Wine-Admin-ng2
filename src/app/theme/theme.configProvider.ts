@@ -42,6 +42,7 @@ export class BaThemeConfigProvider {
         name: 'ng2',
       },
       colors: {
+  
         default: this.basic.default,
         defaultText: this.basic.defaultText,
         border: this.basic.border,

@@ -54,9 +54,9 @@
     "created_with": "Created with"
   },
   "dashboard": {
-    "acquisition_channels": "Acquisition Channels",
+    "acquisition_channels": "Wine Distribution",
     "users_by_country": "Users by Country",
-    "revenue": "Revenue",
+    "revenue": "Revenue [€]",
     "feed": "Feed",
     "todo_list": "To Do List",
     "calendar": "Calendar",

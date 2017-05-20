@@ -1,27 +1,18 @@
-<!-- <div class="row">
-  <div class="col-xlg-9 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">
-    <div class="row">
-      <iframe src="http://localhost:5601/app/kibana#/visualize/edit/price_quantity?embed=true&_g=(filters:!(),refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-15m,mode:quick,to:now))&_a=(filters:!(),linked:!f,query:(query_string:(analyze_wildcard:!t,query:'*')),uiState:(spy:(mode:(fill:!f,name:!n)),vis:(colors:('0%20to%2050':%23CFFAFF,'1%20to%205':%239AC48A,'150%20to%2010,000':%23511749,'5%20to%2010':%23508642,'50%20to%20100':%236ED0E0),legendOpen:!t)),vis:(aggs:!((id:'1',params:(),schema:metric,type:count),(id:'2',params:(field:user.order.product.product_price,ranges:!((from:0,to:50),(from:50,to:100),(from:100,to:150),(from:150,to:10000))),schema:segment,type:range),(id:'3',params:(field:user.order.product.quantity,ranges:!((from:1,to:5),(from:5,to:10))),schema:segment,type:range)),listeners:(),params:(addLegend:!t,addTooltip:!t,isDonut:!f,shareYAxis:!t),title:price_quantity,type:pie))"
-        height="600" width="800">
-      </iframe>
-    </div>
-  </div>
-</div> -->
 <div class="row" *ngIf="dashInitVars">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <pie-chart [dashInitVars]="dashInitVars"></pie-chart>
   </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="dashInitVars">
   <ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12"
                      title="dashboard.acquisition_channels" baCardClass="traffic-panel medium-card">
-    <traffic-chart></traffic-chart>
+    <traffic-chart [dashInitVars]="dashInitVars"></traffic-chart>
   </ba-card>
 
   <ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12"
            title="dashboard.users_by_country" baCardClass="medium-card">
-    <users-map></users-map>
+    <users-map [dashInitVars]="dashInitVars"></users-map>
   </ba-card>
 </div>
 
@@ -33,7 +24,8 @@
         <line-chart></line-chart>
       </ba-card>
       <ba-card class="col-xlg-4 col-xl-12 col-lg-12 col-md-5 col-sm-12 col-12"
-               baCardClass="popular-app medium-card">
+               baCardClass="popular-app medium-card"
+               title="REVENUE WINE [%]">
         <popular-app></popular-app>
       </ba-card>
     </div>

@@ -1,15 +1,19 @@
 import {Injectable} from '@angular/core';
 import {BaThemeConfigProvider, layoutPaths} from '../../../theme';
+import {EntityDashboard} from '../../../entities/entityDashboard';
 
 @Injectable()
 export class UsersMapService {
 
   constructor(private _baConfig:BaThemeConfigProvider) {
+
   }
 
-  getData() {
-    var layoutColors = this._baConfig.get().colors;
 
+
+  getData(initVars: EntityDashboard) {
+    var layoutColors = this._baConfig.get().colors;
+    var countries = initVars.wineCountries;
     return {
       type: 'map',
       theme: 'blur',
@@ -21,24 +25,24 @@ export class UsersMapService {
         zoomLongitude: 10,
         zoomLatitude: 52,
         areas: [
-          { title: 'Austria', id: 'AT', color: layoutColors.primary, customData: '1 244', groupId: '1'},
+          { title: 'Austria', id: 'AT', color: layoutColors.danger, customData: '230', groupId: '1'},
           { title: 'Ireland', id: 'IE', color: layoutColors.primary, customData: '1 342', groupId: '1'},
           { title: 'Denmark', id: 'DK', color: layoutColors.primary, customData: '1 973', groupId: '1'},
-          { title: 'Finland', id: 'FI', color: layoutColors.primary, customData: '1 573', groupId: '1'},
-          { title: 'Sweden', id: 'SE', color: layoutColors.primary, customData: '1 084', groupId: '1'},
+          { title: 'Finland', id: 'FI', color: layoutColors.successLight, customData: '2827', groupId: '1'},
+          { title: 'Sweden', id: 'SE', color: layoutColors.primary, customData: '13111', groupId: '1'},
           { title: 'Great Britain', id: 'GB', color: layoutColors.primary, customData: '1 452', groupId: '1'},
           { title: 'Italy', id: 'IT', color: layoutColors.primary, customData: '1 321', groupId: '1'},
-          { title: 'France', id: 'FR', color: layoutColors.primary, customData: '1 112', groupId: '1'},
+          { title: 'France', id: 'FR', color: layoutColors.primary, customData: '15015', groupId: '1'},
           { title: 'Spain', id: 'ES', color: layoutColors.primary, customData: '1 865', groupId: '1'},
-          { title: 'Greece', id: 'GR', color: layoutColors.primary, customData: '1 453', groupId: '1'},
-          { title: 'Germany', id: 'DE', color: layoutColors.primary, customData: '1 957', groupId: '1'},
+          { title: 'Greece', id: 'GR', color: layoutColors.primary, customData: '6458', groupId: '1'},
+          { title: 'Germany', id: 'DE', color: layoutColors.danger, customData: '1 957', groupId: '1'},
           { title: 'Belgium', id: 'BE', color: layoutColors.primary, customData: '1 011', groupId: '1'},
           { title: 'Luxembourg', id: 'LU', color: layoutColors.primary, customData: '1 011', groupId: '1'},
           { title: 'Netherlands', id: 'NL', color: layoutColors.primary, customData: '1 213', groupId: '1'},
-          { title: 'Portugal', id: 'PT', color: layoutColors.primary, customData: '1 291', groupId: '1'},
+          { title: 'Portugal', id: 'PT', color: layoutColors.primary, customData: '16560', groupId: '1'},
           { title: 'Lithuania', id: 'LT', color: layoutColors.successLight, customData: '567', groupId: '2'},
           { title: 'Latvia', id: 'LV', color: layoutColors.successLight, customData: '589', groupId: '2'},
-          { title: 'Czech Republic ', id: 'CZ', color: layoutColors.successLight, customData: '785', groupId: '2'},
+          { title: 'Czech Republic ', id: 'CZ', color: layoutColors.primary, customData: '8324', groupId: '2'},
           { title: 'Slovakia', id: 'SK', color: layoutColors.successLight, customData: '965', groupId: '2'},
           { title: 'Estonia', id: 'EE', color: layoutColors.successLight, customData: '685', groupId: '2'},
           { title: 'Hungary', id: 'HU', color: layoutColors.successLight, customData: '854', groupId: '2'},
@@ -48,7 +52,11 @@ export class UsersMapService {
           { title: 'Romania', id: 'RO', color: layoutColors.success, customData: '302', groupId: '3'},
           { title: 'Bulgaria', id: 'BG', color: layoutColors.success, customData: '102', groupId: '3'},
           { title: 'Slovenia', id: 'SI', color: layoutColors.danger, customData: '23', groupId: '4'},
-          { title: 'Croatia', id: 'HR', color: layoutColors.danger, customData: '96', groupId: '4'}
+          { title: 'Croatia', id: 'HR', color: layoutColors.danger, customData: '96', groupId: '4'},
+          { title: 'Poland', id: 'PL', color: layoutColors.successLight, customData: '17015', groupId: '4'},
+          { title: 'Ukraine', id: 'PL', color: layoutColors.successLight, customData: '8478', groupId: '4'},
+          { title: 'Russia', id: 'RU', color: layoutColors.primary, customData: '30058', groupId: '4'},
+          { title: 'Switzerland', id: 'CH', color: layoutColors.danger, customData: '30058', groupId: '4'}
         ]
       },
 

@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { EntityDashboard } from '../../../entities/entityDashboard';
 
 import {UsersMapService} from './usersMap.service';
 
@@ -8,10 +9,16 @@ import {UsersMapService} from './usersMap.service';
   styleUrls: ['./usersMap.scss']
 })
 export class UsersMap {
-
+  @Input() dashInitVars: EntityDashboard
   mapData:Object;
 
   constructor(private _usersMapService:UsersMapService) {
-    this.mapData = this._usersMapService.getData();
+
   }
+  ngOnInit() {
+    if (this.dashInitVars) {
+      this.mapData = this._usersMapService.getData(this.dashInitVars);
+    }
+  }
+
 }
